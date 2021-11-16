@@ -1,13 +1,12 @@
 'use strict';
-(function () {
+
+(function ($) {
   var callFormTemplate = document.querySelector('#callback-popup')
       .content
       .querySelector('.callback-popup__container');
-
   // модальное окно "Заказать звонок"
-  var callRequestButton = document.querySelector('#call-request-button');
   var windowExistFlag = false;
-  callRequestButton.addEventListener('click', function () {
+  $('#call-request-button').on('click', function () {
     var nonModalNodes;
     // открытие окна
     if (!windowExistFlag) {
@@ -19,21 +18,23 @@
       applyDataMask(callRequestWindow.querySelector('[data-mask]'));
       var closeButton = document.querySelector('.callback-popup__close-button');
       windowExistFlag = true;
+
       // закрытие по клику вне модального окна
       window.addEventListener('click', function (evt) {
         var isPathContainForm = function (x) {
           return (typeof x.className === 'string') ? x.className.includes('callback-popup__container') || x.id.includes('call-request-button') : false;
         };
-        if (!evt.path.some(isPathContainForm)) {
+        if (!evt.composedPath().some(isPathContainForm)) {
           removeModal(evt);
         }
       });
+
       // недоступность элементов вне модального окна
-      var modalNodes = Array.from(document.querySelectorAll('.callback-popup__container *'));
-      nonModalNodes = document.querySelectorAll('body *:not([tabindex="-1"]');
+      var modalNodes = $('.callback-popup__container *').find(':focusable');
+      nonModalNodes = $(':focusable');
       for (var i = 0; i < nonModalNodes.length; i++) {
         var node = nonModalNodes[i];
-        if (!modalNodes.includes(node) && node !== callRequestWindow) {
+        if ($.contains(node, modalNodes) && node !== callRequestWindow) {
           node._prevTabindex = node.getAttribute('tabindex');
           node.setAttribute('tabindex', -1);
           node.style.pointerEvents = 'none';
@@ -169,4 +170,4 @@
   headerButton.addEventListener('click', function () {
     window.location.href = '#form';
   });
-})();
+})(jQuery);
