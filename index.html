@@ -317,28 +317,28 @@
   </footer>
 
   <template id="callback-popup">
-    <div class="callback-popup__container">
-      <form method="POST" action="https://echo.htmlacademy.ru">
-        <button class="callback-popup__close-button" type="button">
-          <svg>
-            <use xlink:href="img/sprite.svg#close-icon"></use>
-          </svg>
-        </button>
-        <h1>Закажите звонок</h1>
-        <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
-        <label for="popup-name">Введите имя</label>
-        <input type="text" name="name" id="popup-name" placeholder="Имя" required>
-        <label for="popup-phone">Введите номер телефона</label>
-        <input type="tel" name="phone" id="popup-phone" data-mask="+7(___)_______" placeholder="Телефон" required>
-        <label for="popup-question"></label>
-        <textarea type="text" name="question" id="popup-question" placeholder="Ваш вопрос"></textarea>
-        <button class="callback-popup__send-button" type="submit" aria-label="отправить ваш вопрос">Отправить</button>
-        <div class="callback-popup__policy-container">
-          <input type="checkbox" name="policy-popup" id="policy-popup" aria-label="согласие на обработку данных" required>
-          <label for="policy-popup">Я согласен на обработку  персональных данных</label>
-        </div>
-      </form>
-    </div>
+      <div class="callback-popup__container">
+        <form method="POST" action="https://echo.htmlacademy.ru">
+          <button class="callback-popup__close-button" type="button">
+            <svg>
+              <use xlink:href="img/sprite.svg#close-icon"></use>
+            </svg>
+          </button>
+          <h1>Закажите звонок</h1>
+          <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+          <label for="popup-name">Введите имя</label>
+          <input type="text" name="name" id="popup-name" placeholder="Имя" required>
+          <label for="popup-phone">Введите номер телефона</label>
+          <input type="tel" name="phone" id="popup-phone" data-mask="+7(___)_______" placeholder="Телефон" required>
+          <label for="popup-question"></label>
+          <textarea type="text" name="question" id="popup-question" placeholder="Ваш вопрос"></textarea>
+          <button class="callback-popup__send-button" type="submit" aria-label="отправить ваш вопрос">Отправить</button>
+          <div class="callback-popup__policy-container">
+            <input type="checkbox" name="policy-popup" id="policy-popup" aria-label="согласие на обработку данных" required>
+            <label for="policy-popup">Я согласен на обработку  персональных данных</label>
+          </div>
+        </form>
+      </div>
   </template>
 
   <script src="js/script.js"></script>
