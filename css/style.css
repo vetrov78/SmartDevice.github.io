@@ -50,7 +50,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 1px solid #00b2ff;
   -webkit-text-fill-color: #ffffff;
-  -webkit-box-shadow: 0 0 0px 1000px #19baff inset;
+  box-shadow: 0 0 0 1000px #19baff inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -343,6 +343,13 @@ select:-webkit-autofill:focus {
   box-sizing: border-box;
   background-color: #00b2ff;
 }
+@media screen and (max-height: 741px) {
+  .callback-popup__container {
+    height: auto;
+    bottom: 0;
+    overflow: auto;
+  }
+}
 
 .callback-popup__close-button {
   position: absolute;
@@ -607,7 +614,7 @@ select:-webkit-autofill:focus {
 }
 .callback-form__inputs-container input -webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #fff !important;
+  -webkit-text-fill-color: #ffffff;
 }
 .callback-form__inputs-container textarea {
   flex-basis: 100%;
@@ -1022,6 +1029,7 @@ select:-webkit-autofill:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
+  -webkit-justify-content: end;
   align-items: center;
   padding: 0;
 }
